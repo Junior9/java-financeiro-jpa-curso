@@ -1,9 +1,8 @@
 package br.com.financa.teste;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import br.com.financa.model.Conta;
+import br.com.financa.util.JPAUtil;
 
 public class ContaTeste {
 
@@ -15,10 +14,7 @@ public class ContaTeste {
     conta.setNumero("123345");
     conta.setAgencia("321");
 
-    EntityManagerFactory entityManagerFactory = Persistence
-      .createEntityManagerFactory("financas");
-     
-    EntityManager manager = entityManagerFactory.createEntityManager();
+    EntityManager manager = JPAUtil.getInstanceEntityManager();
 
     /**
      * Para se realizar uma operação utilizando o hibernate é necessario abrir uma transaction e finalizar com o commit 
