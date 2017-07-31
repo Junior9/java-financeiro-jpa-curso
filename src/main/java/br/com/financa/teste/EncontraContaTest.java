@@ -16,7 +16,6 @@ public class EncontraContaTest {
 
   public static void main(String[] args) { 
     EntityManager entityManager = JPAUtil.getInstanceEntityManager();
-
     
     /*
      * Qualquer alteração do objeto conta dentro da transction, atualiza automaticamente o banco 
@@ -30,7 +29,7 @@ public class EncontraContaTest {
 
     conta.setTitular("Pedro Ferreira");
     
-    
+    entityManager.close();
     System.out.println(conta.getTitular());
   }
 }
